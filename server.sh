@@ -1,0 +1,1 @@
+docker run -d --restart=always -p 10000:10000 -p 9999:9999  jarvis

@@ -1,17 +1,16 @@
-package client
+package linker
 
 import (
 	"fmt"
 	"net"
 )
 
-type SendData struct {
-	ClientName string `json:"client_name"`
+type IfaceData struct {
 	IfaceName  string `json:"iface_name"`
 	IpAddr     string `json:"ip_addr"`
 }
 
-func getIps() (ips []SendData) {
+func getIps() (ips []IfaceData) {
 
 	ifaces, err := net.Interfaces()
 	if err != nil {
@@ -36,7 +35,7 @@ func getIps() (ips []SendData) {
 				continue
 			}
 			fmt.Println(iface.Name, ip)
-			ips = append(ips, SendData{IfaceName: iface.Name, IpAddr: ip})
+			ips = append(ips, IfaceData{IfaceName: iface.Name, IpAddr: ip})
 		}
 	}
 	return ips

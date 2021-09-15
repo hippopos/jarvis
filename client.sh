@@ -1,0 +1,1 @@
+docker run --name jarvis --net=host -d --restart=always  jarvis client --server-addr vpn.k8sfans.com:9999

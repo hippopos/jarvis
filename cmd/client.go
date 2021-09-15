@@ -10,6 +10,7 @@ import (
 var (
 	name   string
 	region string
+	serverAddr string
 )
 
 func newClient() *cobra.Command {
@@ -22,6 +23,7 @@ func newClient() *cobra.Command {
 	}
 	command.PersistentFlags().StringVarP(&name, "name", "n", "client", "client name")
 	command.PersistentFlags().StringVarP(&region, "region", "r", "region", "client region")
+	command.PersistentFlags().StringVarP(&serverAddr, "server-addr", "s", "localhost:9999", "server address")
 
 	viper.BindPFlags(command.PersistentFlags())
 	return command
